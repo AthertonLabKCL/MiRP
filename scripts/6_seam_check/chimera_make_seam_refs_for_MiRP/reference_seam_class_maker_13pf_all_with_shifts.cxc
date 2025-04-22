@@ -1,0 +1,196 @@
+#
+# ChimeraX script to generate 13pf references
+#
+# First open 2 copies of the central reference in ChimeraX (so they are models #1 and #2).
+#
+# Run the script in Chimera from the command line: open *path_to_script*/reference_seam_class_maker_13pf_all_with_shifts.com
+#
+# MAKES REFERENCES WITH IDs AS FOLLOWS, AND SHOULD SAVE THEM!
+
+# #3  = Rot-1
+# #4  = Rot-2
+# #5  = Rot-3
+# #6  = Rot-4
+# #7  = Rot-5
+# #8  = Rot-6
+# #9  = rot_plus1
+# #10  = rot_plus2
+# #11 = rot_plus3
+# #12 = rot_plus4
+# #13 = rot_plus5
+# #14 = rot_plus6
+# #15 = Shift 41A
+# #16 = Shift 41A Rot-1
+# #17 = Shift 41A Rot-2
+# #18 = Shift 41A Rot-3
+# #19 = Shift 41A Rot-4
+# #20 = Shift 41A Rot-5
+# #21 = Shift 41A Rot-6
+# #22 = Shift 41A rot_plus1
+# #23 = Shift 41A rot_plus2
+# #24 = Shift 41A rot_plus3
+# #25 = Shift 41A rot_plus4
+# #26 = Shift 41A rot_plus5
+# #27 = Shift 41A rot_plus6
+
+
+########################################################################################################################################
+
+######MINUS######
+
+#-1
+turn z -27.67 models #2 coordinateSystem #1
+move z 9.46 models #2 coordinateSystem #1
+fitmap #2 inMap #1 metric overlap
+fitmap #2 inMap #1 metric overlap
+vop resample #2 onGrid #1
+
+#-2
+turn z -27.67 models #2 coordinateSystem #1
+move z 9.46 models #2 coordinateSystem #1
+fitmap #2 inMap #1 metric overlap
+fitmap #2 inMap #1 metric overlap
+vop resample #2 onGrid #1
+
+#-3
+turn z -27.67 models #2 coordinateSystem #1
+move z 9.46 models #2 coordinateSystem #1
+fitmap #2 inMap #1 metric overlap
+fitmap #2 inMap #1 metric overlap
+vop resample #2 onGrid #1
+
+#-4
+turn z -27.67 models #2 coordinateSystem #1
+move z 9.46 models #2 coordinateSystem #1
+fitmap #2 inMap #1 metric overlap
+fitmap #2 inMap #1 metric overlap
+vop resample #2 onGrid #1
+
+#-5
+turn z -27.67 models #2 coordinateSystem #1
+move z 9.46 models #2 coordinateSystem #1
+fitmap #2 inMap #1 metric overlap
+fitmap #2 inMap #1 metric overlap
+vop resample #2 onGrid #1
+
+#-6
+turn z -27.67 models #2 coordinateSystem #1
+move z 9.46 models #2 coordinateSystem #1
+fitmap #2 inMap #1 metric overlap
+fitmap #2 inMap #1 metric overlap
+vop resample #2 onGrid #1
+
+######BRING REF BACK TO 0######
+
+turn z 166.02 models #2 coordinateSystem #1
+move z -56.76 models #2 coordinateSystem #1
+fitmap #2 inMap #1 metric overlap
+fitmap #2 inMap #1 metric overlap
+
+
+######PLUS######
+
+#+1
+turn z 27.67 models #2 coordinateSystem #1
+move z -9.46 models #2 coordinateSystem #1
+fitmap #2 inMap #1 metric overlap
+fitmap #2 inMap #1 metric overlap
+vop resample #2 onGrid #1
+
+#+2
+turn z 27.67 models #2 coordinateSystem #1
+move z -9.46 models #2 coordinateSystem #1
+fitmap #2 inMap #1 metric overlap
+fitmap #2 inMap #1 metric overlap
+vop resample #2 onGrid #1
+
+#+3
+turn z 27.67 models #2 coordinateSystem #1
+move z -9.46 models #2 coordinateSystem #1
+fitmap #2 inMap #1 metric overlap
+fitmap #2 inMap #1 metric overlap
+vop resample #2 onGrid #1
+
+#+4
+turn z 27.67 models #2 coordinateSystem #1
+move z -9.46 models #2 coordinateSystem #1
+fitmap #2 inMap #1 metric overlap
+fitmap #2 inMap #1 metric overlap
+vop resample #2 onGrid #1
+
+#+5
+turn z 27.67 models #2 coordinateSystem #1
+move z -9.46 models #2 coordinateSystem #1
+fitmap #2 inMap #1 metric overlap
+fitmap #2 inMap #1 metric overlap
+vop resample #2 onGrid #1
+
+#+6
+turn z 27.67 models #2 coordinateSystem #1
+move z -9.46 models #2 coordinateSystem #1
+fitmap #2 inMap #1 metric overlap
+fitmap #2 inMap #1 metric overlap
+vop resample #2 onGrid #1
+
+######BRING REF BACK TO 0######
+
+turn z -166.02 models #2 coordinateSystem #1
+move z 56.76 models #2 coordinateSystem #1
+fitmap #2 inMap #1 metric overlap
+fitmap #2 inMap #1 metric overlap
+
+######SHIFTS central ref######
+
+move z -41 models #2 coordinateSystem #1
+vop resample #2 onGrid #1
+
+######SHIFTS minus######
+
+move z -41 models #3,4,5,6,7,8 coordinateSystem #1
+vop resample #3,4,5,6,7,8 onGrid #1
+
+######SHIFTS plus######
+
+move z 41 models #9,10,11,12,13,14 coordinateSystem #1
+vop resample #9,10,11,12,13,14 onGrid #1
+
+#####BRINGS UNSHIFTED REFS BACK########
+
+move z 41 models #3,4,5,6,7,8 coordinateSystem #1
+move z -41 models #9,10,11,12,13,14 coordinateSystem #1
+
+#####SAVES MAPS#####
+
+save ./13pf.mrc models #1
+
+save ./13pf_rot-1.mrc models #3
+save ./13pf_rot-2.mrc models #4
+save ./13pf_rot-3.mrc models #5
+save ./13pf_rot-4.mrc models #6
+save ./13pf_rot-5.mrc models #7
+save ./13pf_rot-6.mrc models #8
+
+save ./13pf_rot_plus1.mrc models #9
+save ./13pf_rot_plus2.mrc models #10
+save ./13pf_rot_plus3.mrc models #11
+save ./13pf_rot_plus4.mrc models #12
+save ./13pf_rot_plus5.mrc models #13
+save ./13pf_rot_plus6.mrc models #14
+
+save ./13pf_41A_shift.mrc models #15
+
+save ./13pf_rot-1_41A_shift.mrc models #16
+save ./13pf_rot-2_41A_shift.mrc models #17
+save ./13pf_rot-3_41A_shift.mrc models #18
+save ./13pf_rot-4_41A_shift.mrc models #19
+save ./13pf_rot-5_41A_shift.mrc models #20
+save ./13pf_rot-6_41A_shift.mrc models #21
+
+save ./13pf_rot_plus1_41A_shift.mrc models #22
+save ./13pf_rot_plus2_41A_shift.mrc models #23
+save ./13pf_rot_plus3_41A_shift.mrc models #24
+save ./13pf_rot_plus4_41A_shift.mrc models #25
+save ./13pf_rot_plus5_41A_shift.mrc models #26
+save ./13pf_rot_plus6_41A_shift.mrc models #27
+
+
